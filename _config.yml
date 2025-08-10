@@ -5,7 +5,7 @@
 title: "CSP Visualization"
 description: "Interactive Constraint Satisfaction Problems Visualization"
 baseurl: ""
-url: "https://shaiky25.github.io/constrain_satisfaction_problems"
+url: "https://shaiky25.github.io/constraint_satisfaction_problems"
 
 # Build settings
 markdown: kramdown
