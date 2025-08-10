@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constraint Satisfaction Problems - AI Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Constraint Satisfaction Problems</h1>
+            <p>Interactive AI-powered visualization of CSP algorithms and concepts</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="overview">Overview</button>
+            <button class="tab-btn" data-tab="map-coloring">Map Coloring</button>
+            <button class="tab-btn" data-tab="sudoku">Sudoku Solver</button>
+            <button class="tab-btn" data-tab="n-queens">N-Queens</button>
+            <button class="tab-btn" data-tab="algorithms">Algorithms</button>
+        </nav>
+
+        <main>
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>What are CSPs?</h3>
+                        <p>Constraint Satisfaction Problems (CSPs) are mathematical problems defined as a set of objects whose state must satisfy a number of constraints or limitations.</p>
+                        <div class="csp-components">
+                            <div class="component">
+                                <h4>Variables</h4>
+                                <p>Objects that need values assigned</p>
+                            </div>
+                            <div class="component">
+                                <h4>Domains</h4>
+                                <p>Possible values for each variable</p>
+                            </div>
+                            <div class="component">
+                                <h4>Constraints</h4>
+                                <p>Rules that limit value combinations</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Real-World Applications</h3>
+                        <ul>
+                            <li>📅 Scheduling problems</li>
+                            <li>🎨 Resource allocation</li>
+                            <li>🗺️ Map coloring</li>
+                            <li>🧩 Puzzle solving</li>
+                            <li>🏭 Manufacturing planning</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>AI Techniques Used</h3>
+                        <div class="ai-techniques">
+                            <div class="technique">
+                                <h4>Backtracking</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="technique">
+                                <h4>Arc Consistency</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="technique">
+                                <h4>Forward Checking</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="technique">
+                                <h4>Genetic Algorithms</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Coloring Tab -->
+            <div id="map-coloring" class="tab-content">
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>Map Coloring Problem</h3>
+                        <p>Color a map so that no two adjacent regions have the same color, using the minimum number of colors.</p>
+                        <div class="controls">
+                            <button id="generate-map">Generate New Map</button>
+                            <button id="solve-map">Solve with AI</button>
+                            <button id="reset-map">Reset</button>
+                        </div>
+                        <canvas id="map-canvas" width="400" height="400"></canvas>
+                    </div>
+
+                    <div class="card">
+                        <h3>Solution Statistics</h3>
+                        <div id="map-stats">
+                            <div class="stat">
+                                <span class="label">Regions:</span>
+                                <span id="region-count">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Colors Used:</span>
+                                <span id="colors-used">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Backtracks:</span>
+                                <span id="backtrack-count">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Time:</span>
+                                <span id="solve-time">0ms</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sudoku Tab -->
+            <div id="sudoku" class="tab-content">
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>Sudoku Solver</h3>
+                        <p>Solve a 9x9 Sudoku puzzle using constraint satisfaction techniques.</p>
+                        <div class="controls">
+                            <button id="generate-sudoku">Generate Puzzle</button>
+                            <button id="solve-sudoku">Solve with AI</button>
+                            <button id="clear-sudoku">Clear</button>
+                        </div>
+                        <div id="sudoku-grid"></div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Solving Process</h3>
+                        <div id="sudoku-steps">
+                            <div class="step-indicator">
+                                <span class="step-number">1</span>
+                                <span class="step-desc">Initialize domains</span>
+                            </div>
+                            <div class="step-indicator">
+                                <span class="step-number">2</span>
+                                <span class="step-desc">Apply constraints</span>
+                            </div>
+                            <div class="step-indicator">
+                                <span class="step-number">3</span>
+                                <span class="step-desc">Backtrack search</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- N-Queens Tab -->
+            <div id="n-queens" class="tab-content">
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>N-Queens Problem</h3>
+                        <p>Place N queens on an N×N chessboard so that no two queens threaten each other.</p>
+                        <div class="controls">
+                            <input type="range" id="queens-slider" min="4" max="12" value="8">
+                            <span id="queens-value">8 Queens</span>
+                            <button id="solve-queens">Solve</button>
+                            <button id="animate-queens">Animate</button>
+                        </div>
+                        <canvas id="queens-canvas" width="400" height="400"></canvas>
+                    </div>
+
+                    <div class="card">
+                        <h3>Performance Metrics</h3>
+                        <canvas id="queens-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Algorithms Tab -->
+            <div id="algorithms" class="tab-content">
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>Algorithm Comparison</h3>
+                        <div class="algorithm-selector">
+                            <button class="algo-btn active" data-algo="backtracking">Backtracking</button>
+                            <button class="algo-btn" data-algo="forward-checking">Forward Checking</button>
+                            <button class="algo-btn" data-algo="arc-consistency">Arc Consistency</button>
+                            <button class="algo-btn" data-algo="genetic">Genetic Algorithm</button>
+                        </div>
+                        <canvas id="algorithm-visualization" width="400" height="400"></canvas>
+                    </div>
+
+                    <div class="card">
+                        <h3>Performance Analysis</h3>
+                        <canvas id="performance-chart"></canvas>
+                    </div>
+
+                    <div class="card">
+                        <h3>Algorithm Details</h3>
+                        <div id="algo-details">
+                            <h4>Backtracking</h4>
+                            <p>A systematic search algorithm that builds candidates for the solution incrementally and abandons a candidate as soon as it determines that the candidate cannot possibly be completed to a valid solution.</p>
+                            <div class="complexity">
+                                <strong>Time Complexity:</strong> O(d^n) where d is domain size, n is number of variables
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
