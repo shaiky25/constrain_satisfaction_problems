@@ -6,9 +6,9 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 50%, #fef3c7 100%);
     min-height: 100vh;
-    color: #333;
+    color: #374151;
 }
 
 .container {
@@ -20,13 +20,13 @@ body {
 header {
     text-align: center;
     margin-bottom: 30px;
-    color: white;
+    color: #1f2937;
 }
 
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 header p {
@@ -38,16 +38,17 @@ header p {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.8);
     border-radius: 15px;
     padding: 10px;
     backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .tab-btn {
     background: transparent;
     border: none;
-    color: white;
+    color: #4b5563;
     padding: 12px 24px;
     margin: 0 5px;
     border-radius: 10px;
@@ -58,13 +59,14 @@ header p {
 }
 
 .tab-btn:hover {
-    background: rgba(255,255,255,0.2);
+    background: rgba(99,102,241,0.1);
     transform: translateY(-2px);
 }
 
 .tab-btn.active {
-    background: rgba(255,255,255,0.3);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background: rgba(99,102,241,0.2);
+    color: #6366f1;
+    box-shadow: 0 4px 15px rgba(99,102,241,0.2);
 }
 
 .tab-content {
@@ -88,16 +90,17 @@ header p {
 }
 
 .card {
-    background: white;
+    background: rgba(255,255,255,0.95);
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
 }
 
 .card h3 {
@@ -175,7 +178,7 @@ header p {
 }
 
 .controls button {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
     color: white;
     border: none;
     padding: 12px 20px;
@@ -187,7 +190,7 @@ header p {
 
 .controls button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(99,102,241,0.3);
 }
 
 .controls input[type="range"] {
@@ -198,11 +201,12 @@ header p {
 #map-canvas, #queens-canvas, #algorithm-visualization {
     width: 100%;
     height: 400px;
-    background: #f7fafc;
+    background: rgba(255,255,255,0.9);
     border-radius: 10px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid rgba(99,102,241,0.2);
     margin-top: 20px;
     display: block;
+    backdrop-filter: blur(5px);
 }
 
 #sudoku-grid {
