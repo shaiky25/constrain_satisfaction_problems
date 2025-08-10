@@ -1,0 +1,29 @@
+# Jekyll configuration for GitHub Pages
+# This ensures the static files are served correctly
+
+# Site settings
+title: "CSP Visualization"
+description: "Interactive Constraint Satisfaction Problems Visualization"
+baseurl: ""
+url: "https://shaiky25.github.io/constrain_satisfaction_problems"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - LICENSE
+  - requirements.txt
+  - setup.sh
+  - csp_demo.py
+  - .github/
+  - .gitignore
+
+# Include files that should be processed
+include:
+  - index.html
+  - script.js
+  - styles.css
+  - csp_performance.png
